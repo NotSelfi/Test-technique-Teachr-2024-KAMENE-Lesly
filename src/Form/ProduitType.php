@@ -17,9 +17,9 @@ class ProduitType extends AbstractType
             ->add('Nom')
             ->add('Description')
             ->add('Prix')
-            ->add('Date_creation', null, [
-                'widget' => 'single_text',
-            ])
+           # ->add('Date_creation', null, [
+           #    'widget' => 'single_text',
+           #])
             ->add('categorie', EntityType::class, [
                 'class' => Categorie::class,
                 'choice_label' => 'id',

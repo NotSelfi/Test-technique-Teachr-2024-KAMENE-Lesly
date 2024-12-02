@@ -26,6 +26,8 @@ final class ProduitController extends AbstractController
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
         $produit = new Produit();
+        $produit->setDateCreation(new \DateTime());
+
         $form = $this->createForm(ProduitType::class, $produit);
         $form->handleRequest($request);
 
