@@ -6,8 +6,19 @@ use App\Repository\ProduitRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Metadata\Put;
+use ApiPlatform\Metadata\Post;
+use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\Delete;
 
-#[ApiResource]
+#[ApiResource (
+    operations: [
+        new Get(),
+        new Put(),
+        new Post(),
+        new Delete()
+    ]
+)]
 #[ORM\Entity(repositoryClass: ProduitRepository::class)]
 class Produit
 {
@@ -94,5 +105,10 @@ class Produit
         $this->categorie = $categorie;
 
         return $this;
+    }
+
+    public function __construct()
+    {
+        $this->Date_creation = new \DateTime();
     }
 }
